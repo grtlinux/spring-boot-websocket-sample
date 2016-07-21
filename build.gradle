@@ -1,0 +1,42 @@
+group 'ca.mpac'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.5.RELEASE")
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+
+springBoot {
+    mainClass = 'com.htakemoto.Application'
+    executable = true
+}
+
+jar {
+    baseName = 'spring-boot-websocket'
+    version =  '1.0.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-websocket'
+    compile 'org.springframework:spring-messaging'
+    compile 'org.springframework:spring-context'
+    compile 'org.codehaus.groovy:groovy-all:2.4.1'
+    testCompile 'junit:junit:4.+'
+}
